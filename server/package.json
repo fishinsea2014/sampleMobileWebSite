@@ -1,0 +1,11 @@
+{
+    "name" : "sampleServer",
+    "scripts":{
+      "start" : "node simple_server.js"  
+    },
+    "dependencies" : {
+        "connect" : "*",
+        "body-parser": "*"
+    }
+
+}
