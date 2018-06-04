@@ -1,39 +1,53 @@
-// var login = {
-//     init: function{
+var login = {
+    init: function{
+        //Advertising page
+        showAdPage = (() => {
+            console.log('Login start');
+            var num = $("#count-down span b").text();
+            var timer;
+            $(".jump").click(() =>{
+                login();
+            })
 
-//     }
-// }
+            timer = setInterval(() => {
+                if  ( num>1 ) {
+                    num--;
+                    $("#count-down span b").text(num);            
+                } else {
+                    clearInterval(timer);
+                    login();
+                }
+            }, 100);
+
+            function login(){
+                console.log("fade out count down");
+                $("#count-down").fadeOut(800);
+                // debugger;
+            }
+        })();
+    },
+    
+    validateInput: function(type){
+        let cur = $(this);
+        let value = cur.val();
+        let filter = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+
+    },
+
+    checkText: function(cur, value, filter, messageType){
+
+    }
+
+}
 
 
-// $(function(){
-//     login.init();
-// })
+$(function(){
+    login.init();
+})
 
 $(function() {
 
-    console.log('Login start');
-    var num = $("#count-down span b").text();
-    var timer;
-    $(".jump").click(() =>{
-        login();
-    })
-
-    timer = setInterval(() => {
-        if  ( num>1 ) {
-            num--;
-            $("#count-down span b").text(num);            
-        } else {
-            clearInterval(timer);
-            login();
-        }
-    }, 100);
-
-    function login(){
-        console.log("fade out count down");
-        $("#count-down").fadeOut(800);
-        // debugger;
-    }
-
+    
 
     //Login
     
