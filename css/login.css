@@ -23,7 +23,7 @@ html, body {
 .page-container {
     max-width: 640px;
     height: 100%;
-    background: url(/img/bg3.jpg) no-repeat top center;
+    background: url(/img/bg1.jpg) no-repeat top center;
     background-size: cover;
     overflow:hidden;
     color: #fff;
@@ -52,13 +52,95 @@ html, body {
     padding: 5px;
 }
 
-/* .icon-i label {
+.icon-i label {
     display: block;
     padding: 25px 0;
-} */
+}
 /* End of advertising screen */
 
+/* Longin content */
+
+.login-content {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.login-content .login-title {
+    margin: 5%;
+    letter-spacing: 9px;
+    color:rgb(116, 68, 7);
+}
+
+.login-content .panel input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 0;
+    outline: none;
+}
+
+.login-content .panel .error-tip {
+    text-align: left;
+    padding-left: 20px;
+    display: none;
+    color: blue;
+}
+
+.login-content .panel .btn-login {
+    width: 50%;
+    display: block;
+    padding: 15px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background: #008fd1;
+    color: #fff;
+    font-size: 18px;
+    margin: auto;
+    outline: none;
+    letter-spacing: 9px;
+    text-align: center;
+}
+
+.login-content .panel .btn-login {    
+    padding:0  10px;    
+}
+
+.login-content .panel .text:nth-child(1) {
+    border-right: 1px solid black;
+}
+
+.login-content .panel .text {
+    background: rgba(0,0,0,0.6);
+    margin: 0.2em 0.5em;
+}
+
+
 /* Tip message */
+
+.msg-tip {
+    display: none;
+    position: absolute;
+    width: 50%;
+    background: rgba(255,255,255,6);
+    right: -50%;
+    top: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.msg-tip p { 
+    padding: 10px;
+}
+
+/* End of tip message */
 
 
 

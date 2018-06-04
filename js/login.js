@@ -1,4 +1,16 @@
+// var login = {
+//     init: function{
+
+//     }
+// }
+
+
+// $(function(){
+//     login.init();
+// })
+
 $(function() {
+
     console.log('Login start');
     var num = $("#count-down span b").text();
     var timer;
@@ -14,7 +26,7 @@ $(function() {
             clearInterval(timer);
             login();
         }
-    }, 1000);
+    }, 100);
 
     function login(){
         console.log("fade out count down");
