@@ -1,25 +1,8 @@
 var login = {
     init: function() {
         this.showAdPage();
+        this.bind();
         this.checkUser();
-        var _this=this;
-        $(".login-content .mobile").blur(function() {
-            
-            let cur = $(this);
-            // debugger;
-            let value = cur.val();
-            let filter  = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;  //正则
-            _this.validateText(cur,value,filter,'Mobile');
-        });
-
-        $(".login-content .password").blur(function() {
-            let cur = $(this);
-            let value = cur.val();
-            let filter  = /^[a-zA-Z]\w{5,17}$/;  
-            _this.validateText(cur,value,filter,'Password');
-        });
-
-        
     },
     //Advertising page
     showAdPage: () => {
@@ -48,7 +31,32 @@ var login = {
             }
         },
     
+        //Validate the input of mobile number and password
+        bind: () =>{
+        $(".login-content .panel input").on('focus', (e) => {
+            $(e.target).siblings(".error-tip").hide;
+            $(".msg-tip").animate({'right':'-50%'},300);
+        })
+
+        $(".login-content .panel input").on('blur', (e) => {
+            let name, reg;
+            switch ($(e.target).attr('name')){
+                case "mobile":
+                    name = 'Mobile';
+                    reg = /(^\([0]\d{2}\))(\d{6,7}$)/;
+                    // reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+                    break;
+                case "password":
+                    name = 'Password';
+                    reg = /^[a-zA-Z]\w{5,17}$/;
+                    break;
+            }
+            // debugger;
+            login.validateText($(e.target), $(e.target).val(), reg, name);
+        })
+    },    
     validateText: function(cur, value, filter, messageType) {
+        // debugger;
         if(value == '') {
             cur.siblings(".error-tip").slideDown().text(messageType+' cannot be empty.');
         }else if (!filter.test(value)) {

@@ -64,8 +64,6 @@ var indexPage = {
             }
       })
     }
-
-
 }
 
 
