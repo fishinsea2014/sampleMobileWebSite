@@ -8,10 +8,12 @@
 
  // body parser extract the entire body portion of an incoming request stream and expose it on req.body
  var bodyParser = require ( 'body-parser'); 
+ var serverStatic = require ('serve-static');
 
  var app = connect()
     .use(bodyParser.json()) //parse JSON
     .use(bodyParser.urlencoded({extended : true}))
+    .use(serverStatic(__dirname))
     .use (function (req, res , next){
         //Make the response can be shared with resources with the given origin.
         res.setHeader('Access-Control-Allow-Origin', '*'); //Allow any resources
@@ -44,7 +46,7 @@
         }
         let dataSent = JSON.stringify(data);
         res.end(dataSent);
-        console.log(dataSent);
+        // console.log(dataSent);
         next();
     })
     .use('/user_request', (req, res, next) => {
@@ -52,7 +54,7 @@
         console.log('rqeust user id: ', mobile_num, password);
         let data = {};
         let user_data = [
-            {"id":"001", "name": "Jason","mobile":"13604058965", "password" : "qazwsx"},
+            {"id":"001", "name": "Jason","mobile":"(027)2156669", "password" : "qazwsx"},
             {"id":"002", "name": "Amy", "mobile":"13604058966", "password" : "qazwsx"},
             {"id":"003", "name": "Ben", "mobile":"13604058967", "password" : "qazwsx"}
         ]

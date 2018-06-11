@@ -88,16 +88,19 @@ var login = {
                 //Post mobile and password to server and get the result.
                 $.ajax({
                     type: "POST", 
-                    url: "http://localhost:3000/user_request", 
+                    url: "http://192.168.0.6:3000/user_request", 
                     async: true, 
                     data: data,  
                     dataType: 'json', 
                     success: function (msg) {
                         console.log(msg);
                         if(msg.code =='200'){
-                            window.location.href=`index.html?id="${msg.result[0].id}"&name="${msg.result[0].name}"`;
+                            window.location.href=`home.html?id="${msg.result[0].id}"&name="${msg.result[0].name}"`;
+                        }else {
+                            alert(`${msg.msg}`);
                         }
-                        debugger;
+
+                        // debugger;
                         
                     },
                     error: function (msg) {
